@@ -1,4 +1,5 @@
 from constants.Weather import Weather
+from common.convert import to_celsius, to_km
 import requests
 import time
 def get_weather():
@@ -11,10 +12,10 @@ def get_weather():
             "timestamp": time.strftime("%Y.%m.%d %H:%M:%S"),
             "city": data["name"],
             "pressure": data["main"]["pressure"],
-            "temp_min": data["main"]["temp_min"],
-            "feels_like": data["main"]["feels_like"],
-            "temp": data["main"]["temp"],
-            "wind_speed": data["wind"]["speed"],
+            "temp_min": to_celsius(data["main"]["temp_min"]),
+            "feels_like": to_celsius(data["main"]["feels_like"]),
+            "temp": to_celsius(data["main"]["temp"]),
+            "wind_speed": to_km(data["wind"]["speed"]),
             "weather_description": data["weather"][0]["description"],
         }
 
