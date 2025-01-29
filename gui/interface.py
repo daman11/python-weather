@@ -41,6 +41,4 @@ def generate_interface():
     load_button.pack(padx=5)
     table_frame = tk.Frame(root)
     table_frame.pack(fill="both", expand=True, padx=10, pady=10)
-
-    root.after(30000, lambda: update_interface(root))
     root.mainloop()
